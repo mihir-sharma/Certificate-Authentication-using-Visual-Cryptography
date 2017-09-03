@@ -2,21 +2,23 @@ import numpy as np
 import cv2
 import json
 
-def decryptImg(x, y, z, UID):
+def decryptImg(x, y, z, w, UID):
     
     keyServer = open(x, "r")
     shareCert = open(y, "r")
-
-    img = np.zeros((585,585,3), np.uint8)
+    orig = cv2.imread(w, -1)
+    width, height = orig.shape[:2]
+    print(type(width))
+    img = np.zeros((width, height, 3), np.uint8)
     img[:] = (255,255,255)
     client = np.array(json.load(shareCert))
     server = np.array(json.load(keyServer))
     arr = []
-    for i in range(0,585):
-        for j in range(0,585):
-            b = int(client[585 * i + j][0] ^ server[585 * i + j][0])
-            g = int(client[585 * i + j][1] ^ server[585 * i + j][1])
-            r = int(client[585 * i + j][2] ^ server[585 * i + j][2])
+    for i in range(0,width):
+        for j in range(0,height):
+            b = int(client[height * i + j][0] ^ server[height * i + j][0])
+            g = int(client[height * i + j][1] ^ server[height * i + j][1])
+            r = int(client[height * i + j][2] ^ server[height * i + j][2])
             arr.append([b, g, r])
             img.itemset((i, j, 0), b)
             img.itemset((i, j, 1), g)
