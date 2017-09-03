@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 import json
 
-def decryptImg(x, y, z, w, UID):
+def decryptImg(x, y, w, UID):
     
     keyServer = open(x, "r")
     shareCert = open(y, "r")
@@ -25,4 +25,3 @@ def decryptImg(x, y, z, w, UID):
             img.itemset((i, j, 2), r)
     cv2.imshow('image', img)
     cv2.waitKey(0)
-    cv2.imwrite(z, img)
