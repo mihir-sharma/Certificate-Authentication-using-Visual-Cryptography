@@ -8,7 +8,6 @@ def decryptImg(x, y, w, UID):
     shareCert = open(y, "r")
     orig = cv2.imread(w, -1)
     width, height = orig.shape[:2]
-    print(type(width))
     img = np.zeros((width, height, 3), np.uint8)
     img[:] = (255,255,255)
     client = np.array(json.load(shareCert))
