@@ -1,10 +1,7 @@
 # Certificate-Authentication-using-Visual-Cryptography
 
-Image file requirements :
 
-    -location: root folder
-
-    -image size: 585*585
+Image file location: root folder
 
 
 Run using executor.py
