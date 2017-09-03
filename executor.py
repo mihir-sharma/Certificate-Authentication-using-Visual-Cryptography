@@ -16,6 +16,6 @@ if picker is 1:
 
 elif picker is 2:
     dirPath = getUserDetails.getUID()
-    decrpyptImg.decryptImg(dirPath + "/key.txt", dirPath + "/SC.txt", dirPath + "/regenImg.png", dirPath)
+    decrpyptImg.decryptImg(dirPath + "/key.txt", dirPath + "/SC.txt", dirPath + "/regenImg.png", dirPath + "/imgDefault.png", dirPath)
 else:
     print("INVALID INPUT. Program terminated.")
